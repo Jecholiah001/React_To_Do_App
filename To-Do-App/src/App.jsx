@@ -1,14 +1,23 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import  Filter from './components/Filter'
 import  InputSection  from './components/InputSection'
 import  Item from './components/Items'
 import { BsSun, BsMoonFill} from "react-icons/bs" 
-import { GetThemeValues } from './components/ContextTheme'
 
 function App() {
-  const {darkMode, themeHandler} = GetThemeValues();
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all")
@@ -86,11 +95,11 @@ function App() {
 
   return (
     <>
-    <div className='main'>
+    <div className= {`App ${theme}`}>
       <div className='to-do'>
       <div className='header' >
           <h1>TODO</h1>
-          {darkMode ? <BsSun onClick={themeHandler}  className='sun'/>:<BsMoonFill onClick={themeHandler}  className='moon'/> }
+          {theme === 'dark'? <BsSun onClick={toggleTheme} className='sun'/>:<BsMoonFill onClick={toggleTheme}  className='moon'/> }
       </div>
 
       <div className='info-sec'>
