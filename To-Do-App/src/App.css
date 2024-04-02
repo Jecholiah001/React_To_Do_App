@@ -1,5 +1,5 @@
 :root {
-  --background-color: white;
+  background-color: rgba(237, 236, 236, 0.964);
 } 
 
 body{
@@ -17,7 +17,7 @@ body{
 
 .main-input input{
   position: absolute;
-  background-color: rgb(222, 218, 218);
+  background-color: white;
   width: 785px;
   height: 50px;
   padding: 12px 5px;
