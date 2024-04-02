@@ -370,6 +370,7 @@ height: 50px;
 .dark .main-input input{
   background-color:rgb(28, 11, 51);
   border-color: rgb(28, 11, 51);
+  color: white;
 }
 
 .dark ::placeholder{
